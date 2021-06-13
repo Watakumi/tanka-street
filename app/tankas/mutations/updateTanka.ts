@@ -1,15 +1,13 @@
 import { resolver } from "blitz"
 import db from "db"
 import { z } from "zod"
+import { ValidateTanka } from "../validation"
 
-const UpdateTanka = z.object({
-  id: z.number(),
-  firstLine: z.string(),
-  secondLine: z.string(),
-  thirdLine: z.string(),
-  fourthLine: z.string(),
-  fifthLine: z.string(),
-})
+const UpdateTanka = z
+  .object({
+    id: z.number(),
+  })
+  .merge(ValidateTanka)
 
 export default resolver.pipe(
   resolver.zod(UpdateTanka),

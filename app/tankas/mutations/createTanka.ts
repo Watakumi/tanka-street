@@ -1,14 +1,8 @@
 import { resolver } from "blitz"
 import db from "db"
-import { z } from "zod"
+import { ValidateTanka } from "../validation"
 
-const CreateTanka = z.object({
-  firstLine: z.string(),
-  secondLine: z.string(),
-  thirdLine: z.string(),
-  fourthLine: z.string(),
-  fifthLine: z.string(),
-})
+const CreateTanka = ValidateTanka
 
 export default resolver.pipe(resolver.zod(CreateTanka), resolver.authorize(), async (input) => {
   // TODO: in multi-tenant app, you must add validation to ensure correct tenant
