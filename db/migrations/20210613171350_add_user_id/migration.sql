@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Tanka" ADD COLUMN     "userId" INTEGER NOT NULL;
+
+-- AddForeignKey
+ALTER TABLE "Tanka" ADD FOREIGN KEY ("userId") REFERENCES "User"("id") ON DELETE CASCADE ON UPDATE CASCADE;
