@@ -2,10 +2,12 @@ import { Link, useRouter, useMutation, BlitzPage, Routes } from "blitz"
 import Layout from "app/core/layouts/Layout"
 import createTanka from "app/tankas/mutations/createTanka"
 import { TankaForm, FORM_ERROR } from "app/tankas/components/TankaForm"
+import { useCurrentUser } from "../../core/hooks/useCurrentUser"
 
 const NewTankaPage: BlitzPage = () => {
   const router = useRouter()
   const [createTankaMutation] = useMutation(createTanka)
+  const currentUser = useCurrentUser()
 
   return (
     <div>
@@ -18,14 +20,17 @@ const NewTankaPage: BlitzPage = () => {
         //         then import and use it here
         // schema={CreateTanka}
         // initialValues={{}}
+        initialValues={{ userId: currentUser && currentUser.id }}
         onSubmit={async (values) => {
-          try {
-            const tanka = await createTankaMutation(values)
-            router.push(`/tankas/${tanka.id}`)
-          } catch (error) {
-            console.error(error)
-            return {
-              [FORM_ERROR]: error.toString(),
+          if (currentUser) {
+            try {
+              const tanka = await createTankaMutation(values)
+              router.push(`/tankas/${tanka.id}`)
+            } catch (error) {
+              console.error(error)
+              return {
+                [FORM_ERROR]: error.toString(),
+              }
             }
           }
         }}
