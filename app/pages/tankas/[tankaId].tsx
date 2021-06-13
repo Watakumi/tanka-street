@@ -18,7 +18,11 @@ export const Tanka = () => {
 
       <div>
         <h1>Tanka {tanka.id}</h1>
-        <pre>{JSON.stringify(tanka, null, 2)}</pre>
+        <h2>{tanka.firstLine}</h2>
+        <h2>{tanka.secondLine}</h2>
+        <h2>{tanka.thirdLine}</h2>
+        <h2>{tanka.fourthLine}</h2>
+        <h2>{tanka.fifthLine}</h2>
 
         <Link href={Routes.EditTankaPage({ tankaId: tanka.id })}>
           <a>Edit</a>

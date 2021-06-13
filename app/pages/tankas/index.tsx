@@ -23,7 +23,7 @@ export const TankasList = () => {
         {tankas.map((tanka) => (
           <li key={tanka.id}>
             <Link href={Routes.ShowTankaPage({ tankaId: tanka.id })}>
-              <a>{tanka.name}</a>
+              <a>{tanka.firstLine}...</a>
             </Link>
           </li>
         ))}
