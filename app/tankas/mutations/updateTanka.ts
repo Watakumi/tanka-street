@@ -4,7 +4,11 @@ import { z } from "zod"
 
 const UpdateTanka = z.object({
   id: z.number(),
-  name: z.string(),
+  firstLine: z.string(),
+  secondLine: z.string(),
+  thirdLine: z.string(),
+  fourthLine: z.string(),
+  fifthLine: z.string(),
 })
 
 export default resolver.pipe(

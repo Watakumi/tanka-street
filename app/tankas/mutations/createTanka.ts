@@ -3,7 +3,11 @@ import db from "db"
 import { z } from "zod"
 
 const CreateTanka = z.object({
-  name: z.string(),
+  firstLine: z.string(),
+  secondLine: z.string(),
+  thirdLine: z.string(),
+  fourthLine: z.string(),
+  fifthLine: z.string(),
 })
 
 export default resolver.pipe(resolver.zod(CreateTanka), resolver.authorize(), async (input) => {
