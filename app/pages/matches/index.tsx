@@ -22,9 +22,9 @@ export const MatchesList = () => {
       <ul>
         {matches.map((match) => (
           <li key={match.id}>
-            <Link href={Routes.ShowMatchPage({ matchId: match.id })}>
+            {/* <Link href={Routes.ShowMatchPage({ matchId: match.id })}>
               <a>{match.name}</a>
-            </Link>
+            </Link> */}
           </li>
         ))}
       </ul>

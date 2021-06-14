@@ -22,9 +22,9 @@ export const GamesList = () => {
       <ul>
         {games.map((game) => (
           <li key={game.id}>
-            <Link href={Routes.ShowGamePage({ gameId: game.id })}>
+            {/* <Link href={Routes.ShowGamePage({ gameId: game.id })}>
               <a>{game.name}</a>
-            </Link>
+            </Link> */}
           </li>
         ))}
       </ul>
