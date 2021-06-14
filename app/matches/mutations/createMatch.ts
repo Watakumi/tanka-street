@@ -3,7 +3,7 @@ import db from "db"
 import { z } from "zod"
 
 const CreateMatch = z.object({
-  name: z.string(),
+  count: z.number(),
 })
 
 export default resolver.pipe(resolver.zod(CreateMatch), resolver.authorize(), async (input) => {

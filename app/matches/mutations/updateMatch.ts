@@ -4,7 +4,7 @@ import { z } from "zod"
 
 const UpdateMatch = z.object({
   id: z.number(),
-  name: z.string(),
+  count: z.number(),
 })
 
 export default resolver.pipe(
