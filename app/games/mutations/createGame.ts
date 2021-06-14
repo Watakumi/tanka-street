@@ -3,7 +3,8 @@ import db from "db"
 import { z } from "zod"
 
 const CreateGame = z.object({
-  name: z.string(),
+  winnerId: z.number(),
+  matchId: z.number(),
 })
 
 export default resolver.pipe(resolver.zod(CreateGame), resolver.authorize(), async (input) => {
